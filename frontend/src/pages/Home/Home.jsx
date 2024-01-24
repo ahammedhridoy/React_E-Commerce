@@ -116,35 +116,37 @@ const Home = ({ addToCart }) => {
           </h1>
           <div className="all-products">
             <div className="grid grid-cols-1 gap-4 px-4 product-wrap md:grid-cols-2 lg:grid-cols-4">
-              {all_product.slice(0, visibleProducts).map((product) => (
-                <div
-                  className="shadow-xl w-100 card bg-base-100"
-                  key={product.id}
-                >
-                  <Link to={"/product/:slug"}>
-                    <figure>
-                      <img src={`/products/${product?.id}`} alt="Shoes" />
-                    </figure>
-                  </Link>
-                  <div className="card-body">
-                    <h2 className="card-title">{product.name}</h2>
-                    <p className="p-3">{product.category}</p>
-                    <div className="flex justify-start gap-2 price">
-                      <p>{product.old_price}</p>
-                      <p>{product.new_price}</p>
-                    </div>
-                    {/* <p>If a dog chews shoes whose shoes does he choose?</p> */}
-                    <div className="justify-end card-actions">
-                      <button
-                        onClick={() => addToCart(product)}
-                        className="mt-3 btn btn-primary"
-                      >
-                        Add to Cart
-                      </button>
+              {all_product
+                .filter((product) => product.category === "women")
+                .slice(0, visibleProducts)
+                .map((product) => (
+                  <div
+                    className="shadow-xl w-100 card bg-base-100"
+                    key={product.id}
+                  >
+                    <Link to={`/products/${product?.id}`}>
+                      <figure>
+                        <img src={product?.image} alt="Shoes" />
+                      </figure>
+                    </Link>
+                    <div className="card-body">
+                      <h2 className="card-title">{product.name}</h2>
+                      <p className="p-3">{product.category}</p>
+                      <div className="flex justify-start gap-2 price">
+                        <p>{product.new_price}</p>
+                      </div>
+                      {/* <p>If a dog chews shoes whose shoes does he choose?</p> */}
+                      <div className="justify-end card-actions">
+                        <button
+                          onClick={() => addToCart(product)}
+                          className="mt-3 btn btn-primary"
+                        >
+                          Add to Cart
+                        </button>
+                      </div>
                     </div>
                   </div>
-                </div>
-              ))}
+                ))}
             </div>
             <div className="text-center">
               <button onClick={loadMore} className="mt-5 btn btn-primary">

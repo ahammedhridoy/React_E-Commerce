@@ -24,8 +24,8 @@ const SingleProduct = ({ addToCart }) => {
           {/* Left */}
           <div className="left basis-full md:basis-2/4">
             <div className="left-wrap">
-              <div className="main-img">
-                <img src={image} alt="" />
+              <div className=" main-img">
+                <img className="mx-auto" src={image} alt="" />
               </div>
             </div>
           </div>
