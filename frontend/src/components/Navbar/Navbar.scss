@@ -1,0 +1,25 @@
+.navbar-menu {
+  .menu {
+    li {
+      a:hover {
+        color: white !important;
+      }
+      a.active {
+        color: white !important;
+      }
+      .mobile-menu {
+        color: gray !important;
+      }
+    }
+  }
+  .profile-menu {
+    li {
+      a {
+        color: black;
+      }
+      a:hover {
+        color: black !important;
+      }
+    }
+  }
+}
